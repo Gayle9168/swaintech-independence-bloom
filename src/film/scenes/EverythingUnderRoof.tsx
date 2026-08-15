@@ -16,7 +16,7 @@ export function EverythingUnderRoof({ t }: { t: number }) {
         t={t + 12}
         cx={540}
         cy={1120 + shift}
-        r={200}
+        r={240}
         logoAt={-10}
         ringAt={-10}
         nodesAt={-10}
@@ -34,7 +34,7 @@ export function EverythingUnderRoof({ t }: { t: number }) {
           outEnd={5.8}
           size={96}
           align="center"
-          top={330}
+          top={380}
         />
       </foreignObject>
     </g>

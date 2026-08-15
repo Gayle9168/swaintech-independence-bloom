@@ -68,6 +68,7 @@
   --color-green: var(--green);
   --color-graphite: var(--graphite);
   --color-graphite-soft: var(--graphite-soft);
+  --color-navy: var(--navy);
   --color-stone: var(--stone);
 }
 
@@ -81,6 +82,7 @@
   --saffron: oklch(0.767 0.152 63);         /* #FF9933 */
   --green: oklch(0.523 0.157 145.6);        /* #138808 */
   --graphite: oklch(0.263 0 0);             /* #252525 */
+  --navy: oklch(0.42 0.16 268);             /* #1F3C88 chakra blue */
   --graphite-soft: oklch(0.53 0.006 60);
   --stone: oklch(0.955 0.006 95);
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;

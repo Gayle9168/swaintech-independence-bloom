@@ -19,11 +19,21 @@ type Props = {
 };
 
 function spokeColor(i: number, amount: number) {
-  // saffron -> white -> green distributed by band, faded in by `amount`
+  // saffron -> navy -> green distributed by band, faded in by `amount`
   const band = i % 3;
   const target =
-    band === 0 ? "var(--saffron)" : band === 1 ? "var(--graphite-soft)" : "var(--green)";
+    band === 0 ? "var(--saffron)" : band === 1 ? "var(--navy)" : "var(--green)";
   return amount > 0.5 ? target : "var(--brand-orange)";
+}
+
+function arcPath(r: number, a0: number, a1: number) {
+  const p = (a: number) => [
+    Math.cos((a * Math.PI) / 180) * r,
+    Math.sin((a * Math.PI) / 180) * r,
+  ];
+  const [x0, y0] = p(a0);
+  const [x1, y1] = p(a1);
+  return `M${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1}`;
 }
 
 /** Abstract 24-spoke radial geometry — precise, not a literal emblem. */
@@ -54,12 +64,33 @@ export function ChakraGeometry({
       <circle
         r={r}
         fill="none"
-        stroke="var(--graphite-soft)"
+        stroke="var(--navy)"
         strokeWidth={1.4}
         strokeDasharray={2 * Math.PI * r}
         strokeDashoffset={2 * Math.PI * r * (1 - ringP)}
         transform="rotate(-90)"
-        opacity={0.6}
+        opacity={0.5}
+      />
+      {/* tricolor halo arcs, saffron sweeping in from the left, green from the right */}
+      <path
+        d={arcPath(r * 1.16, 128, 250)}
+        fill="none"
+        stroke="var(--brand-orange)"
+        strokeWidth={9}
+        strokeLinecap="round"
+        strokeDasharray={Math.PI * r * 1.16 * 0.68}
+        strokeDashoffset={Math.PI * r * 1.16 * 0.68 * (1 - ringP)}
+        opacity={tricolor}
+      />
+      <path
+        d={arcPath(r * 1.16, -70, 52)}
+        fill="none"
+        stroke="var(--green)"
+        strokeWidth={9}
+        strokeLinecap="round"
+        strokeDasharray={Math.PI * r * 1.16 * 0.68}
+        strokeDashoffset={Math.PI * r * 1.16 * 0.68 * (1 - ringP)}
+        opacity={tricolor}
       />
       <circle
         r={r * 0.16}

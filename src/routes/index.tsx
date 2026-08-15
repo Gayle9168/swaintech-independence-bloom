@@ -11,6 +11,7 @@ import { IndiaTransformation } from "../film/scenes/IndiaTransformation";
 import { ProgressScene } from "../film/scenes/ProgressScene";
 import { BrandResolution } from "../film/scenes/BrandResolution";
 import { FinalCard } from "../film/scenes/FinalCard";
+import { TricolorField } from "../film/components/TricolorField";
 
 export const Route = createFileRoute("/")({
   component: Film,
@@ -97,6 +98,9 @@ function Film() {
             </radialGradient>
           </defs>
           <rect width={STAGE_W} height={STAGE_H} fill="url(#field)" />
+
+          {/* ambient tricolor ribbons, present through the whole film */}
+          <TricolorField opacity={0.85} />
 
           {scene.id === "intro" && <IntroScene t={local} />}
           {scene.id === "connection" && <ConnectionScene t={local} />}
