@@ -77,7 +77,7 @@ export function IndustryNode({
           {industry.no}
         </text>
         <text
-          x={labelX}
+          x={0}
           y={18}
           textAnchor={anchor}
           style={{
