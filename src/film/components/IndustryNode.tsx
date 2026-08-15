@@ -12,6 +12,8 @@ type Props = {
   pulse?: number;
   r?: number;
   labelOpacity?: number;
+  /** tricolor accent for this node */
+  accent?: string;
 };
 
 export function IndustryNode({
@@ -23,6 +25,7 @@ export function IndustryNode({
   pulse = 0,
   r = 38,
   labelOpacity = 1,
+  accent = "var(--saffron)",
 }: Props) {
   const scale = 0.85 + 0.15 * progress;
   const rightSide = Math.cos((angle * Math.PI) / 180) >= -0.05;
@@ -36,31 +39,16 @@ export function IndustryNode({
           <circle
             r={r + pulse * 26}
             fill="none"
-            stroke="var(--brand-orange)"
+            stroke={accent}
             strokeWidth={1.2}
             opacity={(1 - pulse) * 0.5}
           />
         )}
-        <circle r={r} fill="var(--white)" stroke="var(--brand-orange)" strokeWidth={1.6} />
+        <circle r={r} fill="var(--white)" stroke={accent} strokeWidth={1.6} />
         <IndustryIcon icon={industry.icon} size={30} />
-        <text
-          y={r + 2}
-          x={0}
-          textAnchor="middle"
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: 15,
-            fontWeight: 700,
-            letterSpacing: 1,
-            fill: "var(--brand-orange)",
-          }}
-          dy={16}
-          opacity={0}
-        >
-          {industry.no}
-        </text>
       </g>
       <g transform={`translate(${x} ${y})`} opacity={labelOpacity}>
+        <circle cx={labelX + (rightSide ? 9 : -9)} cy={-9} r={11} fill={accent} opacity={0.14} />
         <text
           x={labelX}
           y={-4}
@@ -70,7 +58,7 @@ export function IndustryNode({
             fontSize: 14,
             fontWeight: 700,
             letterSpacing: 2.4,
-            fill: "var(--brand-orange)",
+            fill: accent,
           }}
         >
           {industry.no}
