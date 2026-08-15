@@ -11,7 +11,7 @@ export function IndustryEcosystem({ t }: { t: number }) {
         t={t}
         cx={540}
         cy={1010}
-        r={215}
+        r={250}
         logoAt={0.2}
         ringAt={0.9}
         nodesAt={1.7}
@@ -30,7 +30,7 @@ export function IndustryEcosystem({ t }: { t: number }) {
           size={54}
           tracking={-0.5}
           align="center"
-          top={300}
+          top={420}
         />
       </foreignObject>
     </g>
