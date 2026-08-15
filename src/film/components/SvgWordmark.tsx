@@ -21,6 +21,8 @@ export function SvgWordmark({
   subProgress = 1,
 }: Props) {
   const w = size * 6.4;
+  const rule = w * 0.72 * progress;
+  const seg = rule / 3;
   return (
     <g transform={`translate(${x} ${y})`} opacity={progress}>
       <text
@@ -37,13 +39,14 @@ export function SvgWordmark({
         SWAINTECH
       </text>
       <circle cx={w / 2 + size * 0.22} cy={-size * 0.08} r={size * 0.11} fill="var(--brand-orange)" />
-      <rect
-        x={-w * 0.36 * progress}
-        y={size * 0.34}
-        width={w * 0.72 * progress}
-        height={2.5}
-        fill="var(--brand-orange)"
-      />
+
+      {/* tricolor rule */}
+      <g transform={`translate(${-rule / 2} ${size * 0.34})`}>
+        <rect x={0} y={0} width={seg} height={2.5} fill="var(--saffron)" rx={1.2} />
+        <rect x={seg} y={0} width={seg} height={2.5} fill="var(--graphite-soft)" opacity={0.35} rx={1.2} />
+        <rect x={seg * 2} y={0} width={seg} height={2.5} fill="var(--green)" rx={1.2} />
+      </g>
+
       {showSub && (
         <text
           textAnchor="middle"
