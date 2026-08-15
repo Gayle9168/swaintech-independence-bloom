@@ -28,9 +28,16 @@ export function IndustryNode({
   accent = "var(--saffron)",
 }: Props) {
   const scale = 0.85 + 0.15 * progress;
-  const rightSide = Math.cos((angle * Math.PI) / 180) >= -0.05;
-  const labelX = rightSide ? r + 16 : -(r + 16);
-  const anchor = rightSide ? "start" : "end";
+  const a = (angle * Math.PI) / 180;
+  const cos = Math.cos(a);
+  const sin = Math.sin(a);
+  // labels radiate outward along the spoke so neighbours never collide
+  const off = r + 18;
+  const labelX = cos * off;
+  const labelY = sin * off;
+  const anchor: "start" | "middle" | "end" =
+    Math.abs(cos) < 0.28 ? "middle" : cos > 0 ? "start" : "end";
+  const rightSide = anchor === "start";
 
   return (
     <g opacity={progress}>
