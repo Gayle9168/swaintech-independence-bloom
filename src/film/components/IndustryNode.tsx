@@ -54,10 +54,16 @@ export function IndustryNode({
         <circle r={r} fill="var(--white)" stroke={accent} strokeWidth={1.6} />
         <IndustryIcon icon={industry.icon} size={30} />
       </g>
-      <g transform={`translate(${x} ${y})`} opacity={labelOpacity}>
-        <circle cx={labelX + (rightSide ? 9 : -9)} cy={-9} r={11} fill={accent} opacity={0.14} />
+      <g transform={`translate(${x + labelX} ${y + labelY})`} opacity={labelOpacity}>
+        <circle
+          cx={anchor === "middle" ? 0 : rightSide ? 9 : -9}
+          cy={-9}
+          r={11}
+          fill={accent}
+          opacity={0.14}
+        />
         <text
-          x={labelX}
+          x={0}
           y={-4}
           textAnchor={anchor}
           style={{
