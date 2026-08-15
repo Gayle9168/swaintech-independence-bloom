@@ -64,12 +64,33 @@ export function ChakraGeometry({
       <circle
         r={r}
         fill="none"
-        stroke="var(--graphite-soft)"
+        stroke="var(--navy)"
         strokeWidth={1.4}
         strokeDasharray={2 * Math.PI * r}
         strokeDashoffset={2 * Math.PI * r * (1 - ringP)}
         transform="rotate(-90)"
-        opacity={0.6}
+        opacity={0.5}
+      />
+      {/* tricolor halo arcs, saffron sweeping in from the left, green from the right */}
+      <path
+        d={arcPath(r * 1.16, 128, 250)}
+        fill="none"
+        stroke="var(--brand-orange)"
+        strokeWidth={9}
+        strokeLinecap="round"
+        strokeDasharray={Math.PI * r * 1.16 * 0.68}
+        strokeDashoffset={Math.PI * r * 1.16 * 0.68 * (1 - ringP)}
+        opacity={tricolor}
+      />
+      <path
+        d={arcPath(r * 1.16, -70, 52)}
+        fill="none"
+        stroke="var(--green)"
+        strokeWidth={9}
+        strokeLinecap="round"
+        strokeDasharray={Math.PI * r * 1.16 * 0.68}
+        strokeDashoffset={Math.PI * r * 1.16 * 0.68 * (1 - ringP)}
+        opacity={tricolor}
       />
       <circle
         r={r * 0.16}
