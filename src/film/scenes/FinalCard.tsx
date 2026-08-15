@@ -54,7 +54,7 @@ export function FinalCard({ t }: { t: number }) {
       <g opacity={dateRuleP}>
         <rect x={160} y={1252} width={140 * dateRuleP} height={3} rx={1.5} fill="var(--brand-orange)" />
         <circle cx={320} cy={1253.5} r={5} fill="var(--brand-orange)" opacity={dateRuleP} />
-        <rect x={780 - 140 * dateRuleP + 140 * dateRuleP - 140 * dateRuleP} y={1252} width={140 * dateRuleP} height={3} rx={1.5} fill="var(--green)" />
+        <rect x={780} y={1252} width={140 * dateRuleP} height={3} rx={1.5} fill="var(--green)" />
         <circle cx={760} cy={1253.5} r={5} fill="var(--green)" opacity={dateRuleP} />
       </g>
       <text
