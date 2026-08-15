@@ -52,10 +52,10 @@ export function FinalCard({ t }: { t: number }) {
 
       {/* date flanked by tricolor rules */}
       <g opacity={dateRuleP}>
-        <rect x={150} y={1252} width={170 * dateRuleP} height={3} rx={1.5} fill="var(--brand-orange)" />
-        <circle cx={340} cy={1253.5} r={5} fill="var(--brand-orange)" opacity={dateRuleP} />
-        <rect x={760} y={1252} width={170 * dateRuleP} height={3} rx={1.5} fill="var(--green)" />
-        <circle cx={740} cy={1253.5} r={5} fill="var(--green)" opacity={dateRuleP} />
+        <rect x={130} y={1252} width={150 * dateRuleP} height={3} rx={1.5} fill="var(--brand-orange)" />
+        <circle cx={300} cy={1253.5} r={5} fill="var(--brand-orange)" opacity={dateRuleP} />
+        <rect x={800} y={1252} width={150 * dateRuleP} height={3} rx={1.5} fill="var(--green)" />
+        <circle cx={780} cy={1253.5} r={5} fill="var(--green)" opacity={dateRuleP} />
       </g>
       <text
         x={540}
