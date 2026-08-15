@@ -52,10 +52,10 @@ export function FinalCard({ t }: { t: number }) {
 
       {/* date flanked by tricolor rules */}
       <g opacity={dateRuleP}>
-        <rect x={160} y={1252} width={140 * dateRuleP} height={3} rx={1.5} fill="var(--brand-orange)" />
-        <circle cx={320} cy={1253.5} r={5} fill="var(--brand-orange)" opacity={dateRuleP} />
-        <rect x={780} y={1252} width={140 * dateRuleP} height={3} rx={1.5} fill="var(--green)" />
-        <circle cx={760} cy={1253.5} r={5} fill="var(--green)" opacity={dateRuleP} />
+        <rect x={150} y={1252} width={170 * dateRuleP} height={3} rx={1.5} fill="var(--brand-orange)" />
+        <circle cx={340} cy={1253.5} r={5} fill="var(--brand-orange)" opacity={dateRuleP} />
+        <rect x={760} y={1252} width={170 * dateRuleP} height={3} rx={1.5} fill="var(--green)" />
+        <circle cx={740} cy={1253.5} r={5} fill="var(--green)" opacity={dateRuleP} />
       </g>
       <text
         x={540}
@@ -64,9 +64,9 @@ export function FinalCard({ t }: { t: number }) {
         opacity={dateRuleP}
         style={{
           fontFamily: "var(--font-body)",
-          fontSize: 40,
+          fontSize: 34,
           fontWeight: 500,
-          letterSpacing: 8,
+          letterSpacing: 6,
           fill: "var(--graphite-soft)",
         }}
       >
