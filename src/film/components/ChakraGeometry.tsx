@@ -19,11 +19,21 @@ type Props = {
 };
 
 function spokeColor(i: number, amount: number) {
-  // saffron -> white -> green distributed by band, faded in by `amount`
+  // saffron -> navy -> green distributed by band, faded in by `amount`
   const band = i % 3;
   const target =
-    band === 0 ? "var(--saffron)" : band === 1 ? "var(--graphite-soft)" : "var(--green)";
+    band === 0 ? "var(--saffron)" : band === 1 ? "var(--navy)" : "var(--green)";
   return amount > 0.5 ? target : "var(--brand-orange)";
+}
+
+function arcPath(r: number, a0: number, a1: number) {
+  const p = (a: number) => [
+    Math.cos((a * Math.PI) / 180) * r,
+    Math.sin((a * Math.PI) / 180) * r,
+  ];
+  const [x0, y0] = p(a0);
+  const [x1, y1] = p(a1);
+  return `M${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1}`;
 }
 
 /** Abstract 24-spoke radial geometry — precise, not a literal emblem. */
